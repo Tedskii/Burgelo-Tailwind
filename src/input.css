@@ -16,12 +16,12 @@ li {
 }
 
 @layer base {
+  /* ------------------------------HEADER--------------------------------- */
   .header {
     @apply fixed w-full z-[999];
   }
   .header__wrapper {
-    @apply flex flex-col p-5 
-    /* md:grid md:grid-cols-3 md:bg-slate-400; */;
+    @apply flex flex-col p-5 bg-light;
   }
   .branding {
     @apply flex items-center justify-between mb-3;
@@ -40,20 +40,26 @@ li {
   .header__info i {
     @apply text-primary;
   }
-  .header__nav ul.nav {
-    @apply absolute flex flex-col px-8 gap-8 text-left text-3xl justify-center w-screen h-screen top-0 right-[-100rem] bg-light transition-all duration-500
-    md:right-0 md:static md:bg-transparent md:px-0 md:flex md:flex-row md:justify-center md:text-sm md:h-6;
+  .header__nav {
+    @apply flex justify-between items-end
+    md:grid md:grid-cols-[_4fr,_0.5fr,_.5fr] md:w-[100%] md:mx-auto md:justify-self-center;
   }
+  .header__nav ul.nav {
+    @apply absolute text-left flex flex-col gap-4 items-center justify-center top-0 right-[-80rem] w-screen h-screen bg-light transition-all duration-500
+    md:static md:bg-transparent md:flex-row md:w-[auto] md:h-auto md:justify-end md:text-sm md:items-center md:translate-x-[-16rem]
+    /* @apply absolute flex flex-col px-8 gap-8 text-left text-3xl justify-center w-screen h-screen top-0 right-[-100rem] bg-light transition-all duration-500 */;
+  }
+  /* md:right-0 md:static md:bg-transparent md:flex md:flex-row  md:items-end md:text-sm md:h-6; */
   .header__nav ul.nav.open {
     @apply transition-all duration-500 right-0 max-h-screen;
   }
-  .header__nav {
-    @apply flex justify-between
-    md:grid md:grid-cols-[_2fr,_1fr_1fr];
+  .header__nav ul.nav li a {
+    @apply text-left;
   }
   .header__nav .social,
   .header__nav .action {
-    @apply flex gap-6;
+    @apply flex gap-6
+    md:justify-end;
   }
   .header__nav li a:hover {
     @apply text-primary transition-all duration-300;
@@ -72,10 +78,16 @@ li {
     @apply mx-2 translate-y-[15rem] md:translate-y-[10rem];
   }
   .banner .container {
-    @apply h-[700px] bg-center bg-banner bg-cover flex items-center;
+    @apply relative z-[-10] h-[750px] bg-center bg-banner bg-cover flex items-center;
   }
   .banner__wrapper .banner__text {
     @apply ml-10 md:ml-48;
+  }
+  .banner__wrapper .info {
+    @apply md:translate-x-16 md:translate-y-[-3rem];
+  }
+  .banner__text .info h1 {
+    @apply md:text-6xl;
   }
   .banner__text h1,
   .banner__text p {
@@ -93,6 +105,42 @@ li {
   }
   .banner__text a:hover {
     @apply transition-all bg-light text-primary;
+  }
+
+  /* ---------------------BEST PRICE SECTION-------------------------------- */
+  .food {
+    @apply mx-2 translate-y-[20rem]
+    md:translate-y-[15rem];
+  }
+  .food__wrapper {
+    @apply flex flex-col items-center
+    md:flex-row md:gap-5;
+  }
+  .food__wrapper img {
+    @apply inline-block max-w-full h-auto;
+  }
+  .bestPrice {
+    @apply flex flex-col justify-center;
+  }
+  .bestPrice h2 {
+    @apply text-5xl font-normal tracking-widest mb-5;
+  }
+  .bestPrice .stars {
+    @apply flex gap-3 text-primary mb-5;
+  }
+  .bestPrice .stars li:nth-child(4),
+  .bestPrice .stars li:last-child {
+    @apply text-gray-500 opacity-15;
+  }
+  .bestPrice p {
+    @apply mb-9 text-sm leading-8 tracking-widest text-gray-500 font-montserrat;
+  }
+  .standardWrapper {
+    @apply flex justify-around items-baseline mb-14
+    md:justify-start md:gap-14;
+  }
+  .standardWrapper .standard {
+    @apply flex flex-col items-center;
   }
 }
 

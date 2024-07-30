@@ -10,6 +10,7 @@ module.exports = {
       },
       fontFamily: {
         oswald: ["Oswald", "sans-serif"],
+        montserrat:["Montserrat", 'sans-serif']
       },
       backgroundImage: {
         banner: "url('/dist/img/banner-img.webp')",
