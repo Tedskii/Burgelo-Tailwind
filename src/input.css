@@ -2,31 +2,102 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply scroll-smooth;
+}
 body {
-  @apply font-oswald;
+  @apply font-oswald text-lg;
 }
 .container {
-  @apply mx-auto max-w-[150rem] w-full p-4;
+  @apply max-w-[85rem] mx-auto w-full;
 }
 li {
-  list-style: none;
+  @apply list-none;
 }
 
 @layer base {
+  .header {
+    @apply fixed w-full z-[999];
+  }
   .header__wrapper {
-    @apply flex items-center;
+    @apply flex flex-col p-5 
+    /* md:grid md:grid-cols-3 md:bg-slate-400; */;
   }
-  .header__contacts a,
-  .header__contacts p {
-    @apply text-sm;
+  .branding {
+    @apply flex items-center justify-between mb-3;
   }
-  .header__contacts i {
-    @apply text-primary text-2xl;
+  .branding h3 {
+    @apply hidden text-sm items-center justify-center gap-2 
+    md:flex;
   }
+  .branding h3 i {
+    @apply text-primary;
+  }
+  .header__info h3 {
+    @apply flex items-center justify-center gap-2 text-sm mb-3
+    md:hidden;
+  }
+  .header__info i {
+    @apply text-primary;
+  }
+  .header__nav ul.nav {
+    @apply absolute flex flex-col px-8 gap-8 text-left text-3xl justify-center w-screen h-screen top-0 right-[-100rem] bg-light transition-all duration-500
+    md:right-0 md:static md:bg-transparent md:px-0 md:flex md:flex-row md:justify-center md:text-sm md:h-6;
+  }
+  .header__nav ul.nav.open {
+    @apply transition-all duration-500 right-0 max-h-screen;
+  }
+  .header__nav {
+    @apply flex justify-between
+    md:grid md:grid-cols-[_2fr,_1fr_1fr];
+  }
+  .header__nav .social,
+  .header__nav .action {
+    @apply flex gap-6;
+  }
+  .header__nav li a:hover {
+    @apply text-primary transition-all duration-300;
+  }
+
   .toggle__menu {
-    @apply bg-primary p-2 flex flex-col items-center gap-1 justify-center rounded-md;
+    @apply bg-primary p-3 flex flex-col items-center gap-1 justify-center rounded-md z-50
+    md:hidden;
   }
   .toggle__menu span {
     @apply w-5 h-1 bg-light block rounded-sm;
+  }
+
+  /* ---------------------------------BANNER-------------------------------------- */
+  .banner {
+    @apply mx-2 translate-y-[15rem] md:translate-y-[10rem];
+  }
+  .banner .container {
+    @apply h-[700px] bg-center bg-banner bg-cover flex items-center;
+  }
+  .banner__wrapper .banner__text {
+    @apply ml-10 md:ml-48;
+  }
+  .banner__text h1,
+  .banner__text p {
+    @apply text-light;
+  }
+  .banner__text h1 {
+    @apply text-light text-5xl;
+  }
+  .banner__text p {
+    @apply font-light mb-8;
+  }
+  .banner__text a {
+    /* @apply text-light text-sm font-light bg-primary py-3 px-14 text-center rounded-full transition-all; */
+    @apply w-[10rem];
+  }
+  .banner__text a:hover {
+    @apply transition-all bg-light text-primary;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-block p-3 rounded-full text-center text-light;
   }
 }

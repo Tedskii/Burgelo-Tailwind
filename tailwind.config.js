@@ -11,6 +11,9 @@ module.exports = {
       fontFamily: {
         oswald: ["Oswald", "sans-serif"],
       },
+      backgroundImage: {
+        banner: "url('/dist/img/banner-img.webp')",
+      },
     },
   },
   plugins: [],
