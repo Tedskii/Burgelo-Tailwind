@@ -20,6 +20,9 @@ li {
   .header {
     @apply fixed w-full z-[999];
   }
+  .header .container {
+    @apply relative bg-blue-400;
+  }
   .header__wrapper {
     @apply flex flex-col p-5 bg-light;
   }
@@ -47,9 +50,9 @@ li {
   .header__nav ul.nav {
     @apply absolute text-left flex flex-col gap-4 items-center justify-center top-0 right-[-80rem] w-screen h-screen bg-light transition-all duration-500
     md:static md:bg-transparent md:flex-row md:w-[auto] md:h-auto md:justify-end md:text-sm md:items-center md:translate-x-[-16rem]
-    /* @apply absolute flex flex-col px-8 gap-8 text-left text-3xl justify-center w-screen h-screen top-0 right-[-100rem] bg-light transition-all duration-500 */;
+    lg:translate-x-[-18rem];
   }
-  /* md:right-0 md:static md:bg-transparent md:flex md:flex-row  md:items-end md:text-sm md:h-6; */
+
   .header__nav ul.nav.open {
     @apply transition-all duration-500 right-0 max-h-screen;
   }
@@ -71,6 +74,23 @@ li {
   }
   .toggle__menu span {
     @apply w-5 h-1 bg-light block rounded-sm;
+  }
+
+  /* SUBMENU */
+  .header__sub {
+    @apply absolute top-[14] right-0 bg-pink-500 md:!w-full;
+  }
+  .header__sub__wrapper {
+    @apply flex flex-col p-10;
+  }
+  .header__sub__wrapper ul {
+    @apply grid grid-cols-3 gap-5 pb-4;
+  }
+  .header__sub__bottom {
+    @apply grid grid-cols-2 gap-3;
+  }
+  .header__sub__bottom__item {
+    @apply flex items-center justify-center  bg-primary;
   }
 
   /* ---------------------------------BANNER-------------------------------------- */
@@ -112,12 +132,12 @@ li {
     @apply mx-2 translate-y-[20rem]
     md:translate-y-[15rem];
   }
-  .food__wrapper {
-    @apply flex flex-col items-center
+  .feature__wrapper {
+    @apply grid grid-cols-2 items-center
     md:flex-row md:gap-5;
   }
-  .food__wrapper img {
-    @apply inline-block max-w-full h-auto;
+  .feature__wrapper img {
+    @apply w-full;
   }
   .bestPrice {
     @apply flex flex-col justify-center;
@@ -139,8 +159,111 @@ li {
     @apply flex justify-around items-baseline mb-14
     md:justify-start md:gap-14;
   }
+  .standard img {
+    @apply w-[50%];
+  }
   .standardWrapper .standard {
     @apply flex flex-col items-center;
+  }
+  /* PRICING */
+
+  .pricing {
+    @apply flex flex-col;
+  }
+  .pricing__wrapper {
+    @apply grid grid-cols-1 items-center pt-8 pb-20
+    md:grid-cols-3;
+  }
+  .pricing:first-child,
+  .pricing:last-child {
+    @apply md:flex-col-reverse;
+  }
+  .pricing img {
+    @apply w-[70%];
+  }
+  .price__text {
+    @apply flex flex-col gap-6;
+  }
+  .price__text h3 {
+    @apply font-normal text-xl text-[#333333];
+  }
+  .price__text h3 span {
+    @apply text-3xl text-primary
+    md:text-4xl;
+  }
+  .description h2 {
+    @apply text-4xl font-normal tracking-widest pb-6
+    md:text-5xl;
+  }
+  .description h2 span {
+    @apply text-5xl tracking-[0.5rem]
+    md:text-6xl;
+  }
+  .description p {
+    @apply font-montserrat text-gray-500 text-sm leading-8 tracking-widest pb-5;
+  }
+  .description a {
+    @apply w-[3.5rem] text-2xl transition-all;
+  }
+  .description a:hover {
+    @apply bg-dark text-primary transition-all;
+  }
+
+  /* -----------------------OFFERS------------------------- */
+  .offers {
+    @apply translate-y-[20rem] mx-2 pb-1;
+  }
+  .offers__wrapper {
+    @apply flex items-center justify-center flex-col gap-10
+    md:grid grid-cols-[1fr,_2fr,_1fr];
+  }
+  .offers__wrapper p {
+    @apply text-sm  tracking-wider text-gray-500 font-montserrat
+    md:text-lg;
+  }
+  .offers__content {
+    @apply flex items-center justify-center flex-col w-full h-[600px];
+  }
+  .offers__content:first-child {
+    @apply bg-offer1 bg-center bg-cover bg-no-repeat;
+  }
+
+  .offers__content:nth-child(2) {
+    @apply bg-offer2 bg-left-top bg-cover bg-no-repeat
+    md:order-[-2];
+  }
+  .offers__content:last-child {
+    @apply bg-offer3 bg-left-top bg-cover bg-no-repeat;
+  }
+  .offers__content:first-child h2,
+  .offers__content:first-child p {
+    @apply text-center;
+  }
+  .offers__content:first-child h2 {
+    @apply text-5xl tracking-widest mb-5
+    md:text-6xl;
+  }
+  .offers__content:nth-child(2) img,
+  .offers__content:nth-child(2) h3,
+  .offers__content:nth-child(2) h4 {
+    @apply translate-y-[15rem]
+    md:translate-y-[5rem];
+  }
+  .offers__content:nth-child(2) h3 {
+    @apply text-4xl tracking-[0.25rem];
+  }
+
+  .offers__content:nth-child(2) img {
+    @apply translate-y-[16rem]
+    md:translate-y-[6rem];
+  }
+  .offers__content:last-child h3 {
+    @apply text-3xl tracking-[.3rem] translate-y-[-2.5rem] z-10
+    md:translate-y-[-12rem];
+  }
+  .offers__content:last-child img {
+    @apply translate-y-[-1rem]
+    translate-y-[-11rem];
   }
 }
 
