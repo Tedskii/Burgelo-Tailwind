@@ -683,6 +683,7 @@ video {
 
 @media (min-width: 768px) {
   .header__sub__wrapper a img {
+    border-radius: 0.5rem;
     transition-property: all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
@@ -1223,8 +1224,10 @@ video {
 }
 
 .foodNav__wrapper {
+  position: relative;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 .foodNav__wrapper ul {
@@ -1235,10 +1238,80 @@ video {
   gap: 1.5rem;
 }
 
+@media (min-width: 768px) {
+  .foodNav__wrapper ul {
+    max-width: 100%;
+    flex-wrap: wrap;
+    gap: 10rem;
+  }
+}
+
 .foodNav__wrapper ul li a {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.foodTab__content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  opacity: 0;
+}
+
+.foodTab__content.active {
+  opacity: 1;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.food__card {
+  display: flex;
+  height: 30rem;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 207 232 / var(--tw-bg-opacity));
+  padding: 1.5rem;
+}
+
+.food__card img {
+  height: auto;
+  width: 100%;
+}
+
+.food__info {
+  position: relative;
+  bottom: 0rem;
+  display: flex;
+  flex-direction: column;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.food__card:hover .food__info {
+  bottom: 2.5rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.food__info h3 {
+  /* @apply */
+}
+
+.foodNav__link.active a {
+  --tw-text-opacity: 1;
+  color: rgb(255 193 57 / var(--tw-text-opacity));
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
 }
 
 /* ------------------PROCESS------------------------ */
@@ -1246,7 +1319,7 @@ video {
 .process {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-  --tw-translate-y: 30rem;
+  --tw-translate-y: 120rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -1391,7 +1464,7 @@ video {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   margin-top: 2rem;
-  --tw-translate-y: 25rem;
+  --tw-translate-y: 120rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 

@@ -90,7 +90,7 @@ li {
     @apply grid grid-cols-3 gap-5 pb-4;
   }
   .header__sub__wrapper a img {
-    @apply md:transition-all md:duration-300;
+    @apply md:rounded-lg md:transition-all md:duration-300;
   }
   .header__sub__wrapper a img:hover {
     @apply md:scale-110 md:transition-all md:duration-300;
@@ -300,19 +300,45 @@ li {
   .menu {
     @apply translate-y-[20rem] mx-2;
   }
-  .foodNav__wrapper{
-    @apply flex justify-center
+  .foodNav__wrapper {
+    @apply relative flex justify-center overflow-hidden;
   }
-  .foodNav__wrapper ul{
+  .foodNav__wrapper ul {
     @apply flex flex-wrap max-w-[25rem] gap-6 justify-center
+    md:flex-wrap md:gap-40  md:max-w-full;
   }
-  .foodNav__wrapper ul li a{
-    @apply flex flex-col items-center
+  .foodNav__wrapper ul li a {
+    @apply flex flex-col items-center;
+  }
+  .foodTab__content {
+    @apply absolute opacity-0 flex flex-col items-center justify-center gap-2;
+  }
+  .foodTab__content.active {
+    @apply opacity-100 transition-all;
+  }
+  .food__card {
+    @apply h-[30rem] flex flex-col items-center  p-6 bg-pink-200 overflow-hidden;
+  }
+  .food__card img {
+    @apply h-auto w-full;
+  }
+  .food__info {
+    @apply relative flex flex-col bottom-[0rem] transition-all;
+  }
+  .food__card:hover .food__info {
+    @apply bottom-10 transition-all;
+  }
+  
+  .food__info h3 {
+    /* @apply */
+  }
+  .foodNav__link.active a {
+    @apply text-primary transition-all duration-200;
   }
 
   /* ------------------PROCESS------------------------ */
   .process {
-    @apply translate-y-[30rem] mx-2;
+    @apply translate-y-[120rem] mx-2;
   }
   .process__wrapper {
     @apply relative grid grid-cols-1 gap-8
@@ -365,7 +391,7 @@ li {
 
   /* -----------------------------FOOTER-------------------------- */
   .footer {
-    @apply translate-y-[25rem] mt-8 mx-2;
+    @apply translate-y-[120rem] mt-8 mx-2;
   }
   .footer__wrapper {
     @apply flex flex-col gap-10;
