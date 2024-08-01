@@ -78,7 +78,10 @@ li {
 
   /* SUBMENU */
   .header__sub {
-    @apply absolute top-[14] right-0 bg-pink-500 md:!w-full;
+    @apply md:hidden md:opacity-0 md:absolute md:top-[40px] md:right-[-572px] md:bg-light shadow-lg md:!w-[85rem] md:transition-all md:duration-300;
+  }
+  .header__sub.open {
+    @apply md:block md:opacity-100 md:transition-all md:duration-300;
   }
   .header__sub__wrapper {
     @apply flex flex-col p-10;
@@ -86,11 +89,38 @@ li {
   .header__sub__wrapper ul {
     @apply grid grid-cols-3 gap-5 pb-4;
   }
+  .header__sub__wrapper a img {
+    @apply md:transition-all md:duration-300;
+  }
+  .header__sub__wrapper a img:hover {
+    @apply md:scale-110 md:transition-all md:duration-300;
+  }
   .header__sub__bottom {
     @apply grid grid-cols-2 gap-3;
   }
   .header__sub__bottom__item {
-    @apply flex items-center justify-center  bg-primary;
+    @apply flex items-center justify-center text-light text-center px-4 py-1;
+  }
+  .header__sub__bottom__item a {
+    @apply max-w-[100%] mx-auto;
+  }
+  .header__sub__bottom__item:first-child {
+    @apply bg-primary grid-cols-[_3fr_1.5fr_1.5fr];
+  }
+  .header__sub__bottom__item:first-child h4 {
+    @apply text-3xl tracking-widest;
+  }
+  .header__sub__bottom__item:first-child h3 {
+    @apply text-5xl tracking-widest;
+  }
+  .header__sub__bottom__item:nth-child(2) {
+    @apply bg-dark grid-cols-[_3fr_1.5fr];
+  }
+  .header__sub__bottom__item:nth-child(2) h4 {
+    @apply text-3xl tracking-widest;
+  }
+  .header__sub__bottom__item:nth-child(2) h3 {
+    @apply text-6xl tracking-[0.4rem];
   }
 
   /* ---------------------------------BANNER-------------------------------------- */
@@ -117,7 +147,7 @@ li {
     @apply text-light text-5xl;
   }
   .banner__text p {
-    @apply font-light mb-8;
+    @apply font-light mb-8 font-montserrat text-sm;
   }
   .banner__text a {
     /* @apply text-light text-sm font-light bg-primary py-3 px-14 text-center rounded-full transition-all; */
@@ -133,8 +163,8 @@ li {
     md:translate-y-[15rem];
   }
   .feature__wrapper {
-    @apply grid grid-cols-2 items-center
-    md:flex-row md:gap-5;
+    @apply grid grid-cols-1 items-center
+    md:grid-cols-2 md:gap-5;
   }
   .feature__wrapper img {
     @apply w-full;
@@ -211,11 +241,11 @@ li {
 
   /* -----------------------OFFERS------------------------- */
   .offers {
-    @apply translate-y-[20rem] mx-2 pb-1;
+    @apply translate-y-[20rem] mx-2 pb-10;
   }
   .offers__wrapper {
     @apply flex items-center justify-center flex-col gap-10
-    md:grid grid-cols-[1fr,_2fr,_1fr];
+    md:grid grid-cols-[1fr,_2fr,_1fr] gap-0;
   }
   .offers__wrapper p {
     @apply text-sm  tracking-wider text-gray-500 font-montserrat
@@ -263,7 +293,154 @@ li {
   }
   .offers__content:last-child img {
     @apply translate-y-[-1rem]
-    translate-y-[-11rem];
+    md:translate-y-[-11rem];
+  }
+
+  /* -----------------TABS----------------------- */
+  .menu {
+    @apply translate-y-[20rem] mx-2;
+  }
+  .foodNav__wrapper{
+    @apply flex justify-center
+  }
+  .foodNav__wrapper ul{
+    @apply flex flex-wrap max-w-[25rem] gap-6 justify-center
+  }
+  .foodNav__wrapper ul li a{
+    @apply flex flex-col items-center
+  }
+
+  /* ------------------PROCESS------------------------ */
+  .process {
+    @apply translate-y-[30rem] mx-2;
+  }
+  .process__wrapper {
+    @apply relative grid grid-cols-1 gap-8
+    md:grid-cols-3 md:gap-5;
+  }
+  .process__wrapper .step:nth-child(3) {
+    @apply md:flex-col-reverse;
+  }
+  .step {
+    @apply flex flex-col items-center text-center
+    md:text-left;
+  }
+  .step h2 {
+    @apply text-2xl tracking-widest mb-4 items-center
+    md:text-left;
+  }
+  .step p {
+    @apply text-sm tracking-widest font-montserrat text-gray-500;
+  }
+  .step__text {
+    @apply flex flex-col items-center justify-center
+    md:items-start;
+  }
+  .stepTitle {
+    @apply flex flex-col items-center
+    md:flex-row-reverse md:items-end md:gap-6;
+  }
+  .stepTitle h2 {
+    @apply md:text-4xl;
+  }
+  .step:first-child .description,
+  .step:first-child .stepTitle {
+    @apply md:ml-[5rem] mt-4;
+  }
+
+  .step:nth-child(3) .description,
+  .step:nth-child(3) .stepTitle {
+    @apply md:ml-[1rem] mt-1;
+  }
+  #vector1,
+  #vector2 {
+    @apply hidden md:inline md:absolute;
+  }
+  #vector1 {
+    @apply translate-x-[18rem] translate-y-[2rem];
+  }
+  #vector2 {
+    @apply translate-x-[52rem] translate-y-[2rem];
+  }
+
+  /* -----------------------------FOOTER-------------------------- */
+  .footer {
+    @apply translate-y-[25rem] mt-8 mx-2;
+  }
+  .footer__wrapper {
+    @apply flex flex-col gap-10;
+  }
+  .footer__wrapper .top {
+    @apply grid grid-cols-1 gap-12
+    md:grid-cols-3;
+  }
+  .top h3 {
+    @apply tracking-widest text-2xl mb-3;
+  }
+  .top p {
+    @apply tracking-[0.2rem] font-montserrat text-sm text-gray-500;
+  }
+  .top a {
+    @apply transition-all;
+  }
+  .top a:hover {
+    @apply transition-all text-primary;
+  }
+  .gallery {
+    @apply flex flex-col gap-5
+    md:order-3;
+  }
+  .gallery .featuredDish {
+    @apply grid grid-cols-2 gap-4
+    md:grid-cols-4;
+  }
+  .forms {
+    @apply flex flex-col gap-5;
+  }
+  .forms .formsWrapper {
+    @apply flex flex-col relative;
+  }
+  .formsWrapper a {
+    @apply absolute top-1 right-4;
+  }
+  .forms input {
+    @apply w-full px-4  py-1 border border-gray-400 rounded-full outline-none;
+  }
+  .forms input::placeholder {
+    @apply font-montserrat text-sm tracking-widest;
+  }
+  .forms .socialIcons {
+    @apply flex gap-4 text-2xl;
+  }
+  .contact {
+    @apply flex flex-col gap-3;
+  }
+  .contact table:last-child tr a {
+    @apply transition-all tracking-[0.rem] font-montserrat text-sm text-gray-500;
+  }
+  .contact table:last-child tr a:hover {
+    @apply transition-all text-primary;
+  }
+  .contact tr td:first-child {
+    @apply w-[3rem];
+  }
+  .contact i {
+    @apply text-primary;
+  }
+  .contact h2 {
+    @apply text-dark md:text-3xl tracking-widest transition-all;
+  }
+  .contact h2:hover {
+    @apply transition-all text-primary;
+  }
+  .contact td {
+    @apply pb-5;
+  }
+  .footerText {
+    @apply flex py-7 tracking-widest text-sm font-montserrat text-gray-500;
+  }
+  .footerText a {
+    @apply text-primary;
   }
 }
 
