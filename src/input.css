@@ -76,15 +76,19 @@ li {
     @apply w-5 h-1 bg-light block rounded-sm;
   }
 
+  .nav:first-child li.open a::before {
+    @apply text-primary;
+  }
+
   /* SUBMENU */
   .header__sub {
     @apply md:hidden md:opacity-0 md:absolute md:top-[40px] md:right-[-572px] md:bg-light shadow-lg md:!w-[85rem] md:transition-all md:duration-300;
   }
   .header__sub.open {
-    @apply md:block md:opacity-100 md:transition-all md:duration-300;
+    @apply hidden md:block md:opacity-100 md:transition-all md:duration-300;
   }
   .header__sub__wrapper {
-    @apply flex flex-col p-10;
+    @apply hidden md:flex md:flex-col md:p-10;
   }
   .header__sub__wrapper ul {
     @apply grid grid-cols-3 gap-5 pb-4;
@@ -305,40 +309,77 @@ li {
   }
   .foodNav__wrapper ul {
     @apply flex flex-wrap max-w-[25rem] gap-6 justify-center
-    md:flex-wrap md:gap-40  md:max-w-full;
+    md:flex-wrap md:gap-12
+    lg:grid lg:grid-cols-6  lg:gap-32 md:max-w-full;
   }
   .foodNav__wrapper ul li a {
     @apply flex flex-col items-center;
   }
   .foodTab__content {
-    @apply absolute opacity-0 flex flex-col items-center justify-center gap-2;
+    @apply absolute opacity-0 flex flex-col items-center justify-center gap-4
+    md:flex-row;
+  }
+  .foodTab__wrapper {
+    @apply md:flex md:justify-start relative;
+  }
+  .foodTab__content {
+    @apply flex flex-col items-center justify-center
+    md:grid md:grid-cols-2  md:overflow-hidden
+    lg:grid-cols-3;
   }
   .foodTab__content.active {
     @apply opacity-100 transition-all;
   }
   .food__card {
-    @apply h-[30rem] flex flex-col items-center  p-6 bg-pink-200 overflow-hidden;
+    @apply relative px-[4rem] w-auto h-[32rem] shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px];
   }
   .food__card img {
-    @apply h-auto w-full;
+    @apply top-[5rem] scale-110 relative transition-all duration-500 z-[11]
+    md:w-auto;
   }
   .food__info {
-    @apply relative flex flex-col bottom-[0rem] transition-all;
+    @apply opacity-0 absolute flex flex-col items-start w-[20rem] p-3 bottom-[2rem] z-[1]
+    transition-all duration-500 
+    md:w-auto;
+  }
+  .food__info h4 {
+    @apply text-3xl tracking-wider opacity-100;
+  }
+  .food__info h3 {
+    @apply text-primary text-2xl opacity-100;
+  }
+  .food__info small {
+    @apply text-sm text-gray-500 tracking-wider mb-3;
+  }
+  .food__info i {
+    @apply mr-2;
+  }
+  .food__info a {
+    @apply bg-primary text-dark p-2 text-sm;
+  }
+  .box {
+    @apply bottom-0 right-0 w-full h-full absolute bg-opacity-100
+    transition-all duration-500;
+  }
+
+  /* hover */
+  .food__card:hover .box {
+    @apply z-0 h-0 transition-all duration-500;
   }
   .food__card:hover .food__info {
-    @apply bottom-10 transition-all;
+    @apply opacity-100 bottom-[3rem] transition-all duration-500;
   }
-  
-  .food__info h3 {
-    /* @apply */
+  .food__card:hover img {
+    @apply top-0 transition-all scale-90 duration-500;
   }
   .foodNav__link.active a {
     @apply text-primary transition-all duration-200;
   }
-
   /* ------------------PROCESS------------------------ */
   .process {
-    @apply translate-y-[120rem] mx-2;
+    @apply translate-y-[120rem] mx-2
+    md:translate-y-[82rem]
+    lg:translate-y-[55rem];
   }
   .process__wrapper {
     @apply relative grid grid-cols-1 gap-8
@@ -380,18 +421,20 @@ li {
   }
   #vector1,
   #vector2 {
-    @apply hidden md:inline md:absolute;
+    @apply hidden lg:inline lg:absolute;
   }
   #vector1 {
-    @apply translate-x-[18rem] translate-y-[2rem];
+    @apply md:translate-x-[18rem] md:translate-y-[2rem];
   }
   #vector2 {
-    @apply translate-x-[52rem] translate-y-[2rem];
+    @apply md:translate-x-[52rem] md:translate-y-[2rem];
   }
 
   /* -----------------------------FOOTER-------------------------- */
   .footer {
-    @apply translate-y-[120rem] mt-8 mx-2;
+    @apply translate-y-[120rem] mt-8 mx-2
+    md:translate-y-[90rem]
+    lg:translate-y-[56rem];
   }
   .footer__wrapper {
     @apply flex flex-col gap-10;
@@ -464,9 +507,6 @@ li {
   }
   .footerText {
     @apply flex py-7 tracking-widest text-sm font-montserrat text-gray-500;
-  }
-  .footerText a {
-    @apply text-primary;
   }
 }
 
