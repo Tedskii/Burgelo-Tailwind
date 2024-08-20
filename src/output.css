@@ -652,7 +652,7 @@ video {
 @media (min-width: 768px) {
   .header__sub {
     position: absolute;
-    top: 40px;
+    top: 20px;
     right: -572px;
     display: none;
     width: 85rem !important;
