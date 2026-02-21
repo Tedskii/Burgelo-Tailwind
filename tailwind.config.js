@@ -9,7 +9,7 @@ module.exports = {
         light: "#FFFFFF",
       },
       fontFamily: {
-        oswald: ["Oswald", "sans-serif"],
+        oswald: ["Oswald", "sans-serif"]    ,
         montserrat: ["Montserrat", "sans-serif"],
       },
       backgroundImage: {
