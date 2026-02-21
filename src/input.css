@@ -82,7 +82,7 @@ li {
 
   /* SUBMENU */
   .header__sub {
-    @apply md:hidden md:opacity-0 md:absolute md:top-[40px] md:right-[-572px] md:bg-light shadow-lg md:!w-[85rem] md:transition-all md:duration-300;
+    @apply md:hidden md:opacity-0 md:absolute md:top-[20px] md:right-[-572px] md:bg-light shadow-lg md:!w-[85rem] md:transition-all md:duration-300;
   }
   .header__sub.open {
     @apply hidden md:block md:opacity-100 md:transition-all md:duration-300;
